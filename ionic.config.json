@@ -1,5 +1,7 @@
 {
   "name": "monitorElectrico",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

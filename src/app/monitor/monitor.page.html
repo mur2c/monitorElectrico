@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start ion-button icon-only (click)="gotoHome()">
+        <ion-icon color="light" name="md-arrow-back" color="dark"></ion-icon>
+    </ion-buttons>
+    <ion-title color="dark" slot="start">   
+    </ion-title>
+  </ion-toolbar>
+  <div id="heads">Monitor</div> 
+</ion-header>
+
+<ion-content>
+        <div class="ion-padding"> 
+          <ion-card>
+            <ion-card-header>
+                  Voltage
+            </ion-card-header>
+            <ion-card-content>
+                <rg-gauge-chart
+                [canvasWidth]="canvasWidth"
+                [needleValue]="needleValue"
+                [centralLabel]="centralLabel"
+                [options]="options"
+                [name]="name"
+                [bottomLabel]="bottomLabel"></rg-gauge-chart>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              Estado del Banco de Baterias
+            </ion-card-header>
+            <ion-card-content>
+              <canvas #lineCanvas></canvas>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              Carga del Banco de Bateria
+            </ion-card-header>
+            <ion-card-content>
+    
+              <div class="cuerpo"> 
+                  <div style="height: 30px"></div>                
+                  <div id="tip"></div>                  
+                  <div id="battery">                  
+                    <div id="indicator"></div>
+                    <div id="imagen">
+                        <img src="assets/img/bateriamod.png" alt="bateria" height="200">
+                    </div>
+                    <div id="cell" [ngStyle]="{'height': chargeload}"></div>
+                  </div>
+                  <div id="porciento">{{chargeload}} </div> 
+              </div>
+
+            </ion-card-content>
+          </ion-card>
+        </div>
+</ion-content>

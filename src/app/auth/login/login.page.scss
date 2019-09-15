@@ -1,0 +1,30 @@
+.login-form{
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+ion-title {
+    font-weight: 500;
+  }
+
+  ion-label {
+ //   font-weight: 550;
+    color: #61676b !important;
+}
+
+ion-button {
+    --background: #232F3E
+}
+
+ion-toolbar {
+    --border-color:white;
+}

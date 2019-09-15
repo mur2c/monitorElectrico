@@ -1,0 +1,30 @@
+ion-menu{
+    ion-content{
+        // --ion-background-color:#232F3E;
+        --ion-background-color: #21648a;
+    }
+}
+
+#letra {
+    color: #D1DDD3;
+}
+
+ion-toolbar {
+    --background: #21648a;
+}
+
+ion-title {
+    --color: #D1DDD3;
+}
+
+.icono {
+    background-color: #21648a;
+    color: white;
+}
+
+.login-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

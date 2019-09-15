@@ -1,0 +1,40 @@
+<ion-header line="none">
+  <ion-toolbar>
+    <ion-title color="light"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="login-logo">
+    <img src="/assets/img/solecom.png" alt="logo">
+  </div>
+
+  <section class="login-form" >  
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-list lines="full">
+      <ion-item>
+        <ion-label position="stacked" color="dark">Correo Eléctronico</ion-label>
+        <ion-input name="email" type="email" required ngModel email>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p [hidden]="true" class="ion-padding-start">
+          Username is required
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="dark">Contraseña</ion-label>
+        <ion-input name="password" type="password" required="true" ngModel minlength="8">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button type="submit" expand="block">Accesar</ion-button>
+    </div>
+  </form>
+  </section>
+
+</ion-content>

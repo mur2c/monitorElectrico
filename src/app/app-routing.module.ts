@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,12 +10,15 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: './home/home.module#HomePageModule',
+    canActivate: [AuthGuard] //route path protected , only logged in users can access. See auth.guard.ts
   },
-  {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  }
+  { path: 'login', loadChildren: './auth/login/login.module#LoginPageModule' },
+  { path: 'logout', loadChildren: './auth/logout/logout.module#LogoutPageModule' },
+  { path: 'config', loadChildren: './config/config.module#ConfigPageModule' },
+  { path: 'config/:id', loadChildren: './config/config.module#ConfigPageModule' },
+  { path: 'monitor', loadChildren: './monitor/monitor.module#MonitorPageModule' },
+  { path: 'monitor/:id', loadChildren: './monitor/monitor.module#MonitorPageModule' },
 ];
 
 @NgModule({
