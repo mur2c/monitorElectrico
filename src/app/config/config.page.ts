@@ -21,9 +21,12 @@ export class ConfigPage implements OnInit {
 
   // Variables emp,suc Will be loaded empty, unless a parameter is sent  "this.route.snapshot.params['id']"  check ngOninit
   todo: TaskI = {     
-    emp: " ",
-    suc: " ",
+    emp: '',
+    suc: '',
    };
+   localidad = "Sucursal o Localidad";
+   usuario = "Empresa o Usuario"
+   ident = "Id del Dispositivo";
 
 
   constructor(private route: ActivatedRoute, private router: Router, private db: AngularFirestore, private afAuth: AngularFireAuth, private itemservice: ItemService, public loadingController: LoadingController) { }

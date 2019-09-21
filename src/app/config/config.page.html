@@ -8,24 +8,51 @@
   </ion-toolbar>
   <div id="heads">Configuración</div> 
 </ion-header>
-<ion-row style="height: 35px; background-color: #efeff4; border-bottom: 1px solid #ffffff;"></ion-row>
 
-<ion-content class="ion-padding">
+
+<ion-content>
 <section class="add_device" > 
+    <div class="titulo">Datos de la Empresa</div>
     <ion-list>
-      <ion-list-header>
-            <ion-label color="dark">Datos de la Empresa</ion-label>
-      </ion-list-header>
        <ion-item>
-          <ion-label position="stacked" color="dark">Nombre de la Empresa</ion-label>
-          <ion-input class="form-control" type="text" maxlength="40" [(ngModel)]="todo.emp" #myControl="ngModel"></ion-input>
-          <!-- <span>Please enter a framework name of no more than 40 characters</span> -->
+          <ion-label position="fixed" color="dark">Nombre</ion-label>
+          <ion-input class="form-control" type="text" maxlength="40" [(ngModel)]="todo.emp" #myControl="ngModel" placeholder="{{usuario}}"></ion-input>
        </ion-item>
        <ion-item>
-          <ion-label position="stacked" color="dark">Sucursal</ion-label>
-          <ion-input type="text" maxlength="40" [(ngModel)]="todo.suc"></ion-input>
+          <ion-label position="fixed" color="dark">Sucursal</ion-label><ion-input type="text" maxlength="40" [(ngModel)]="todo.suc" placeholder= "{{localidad}}"> </ion-input>
        </ion-item>
+       <ion-item>
+          <ion-label position="fixed" color="dark">Dispositivo</ion-label><ion-input placeholder="Nombre del Dispositivo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed" color="dark">Id</ion-label><ion-input placeholder="Id del Dispositivo o sensor"></ion-input>
+      </ion-item>
     </ion-list> 
+
+    <div class="titulo">Datos Generales</div>
+
+    <ion-list>
+      <ion-item>
+            <ion-label position="fixed" color="dark">Capacidad</ion-label><ion-input placeholder="Capacidad Inversor"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="fixed" color="dark">Marca</ion-label><ion-input placeholder="Marca del Inversor"></ion-input>
+      </ion-item>
+      <ion-item>
+         <ion-label position="fixed" color="dark">Tipo</ion-label>
+         <ion-input class="form-control" type="text" maxlength="40" placeholder="Tipo de Baterias"></ion-input>
+      </ion-item>
+      <ion-item>
+         <ion-label position="fixed" color="dark">Marca</ion-label><ion-input type="text" maxlength="40" placeholder= "Marcas Baterias"> </ion-input>
+      </ion-item>
+      <ion-item>
+         <ion-label position="fixed" color="dark">Capacidad</ion-label><ion-input placeholder="Capacidad Baterias"></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label position="fixed" color="dark">Cantidad</ion-label><ion-input placeholder="Cantidad de Baterias"></ion-input>
+     </ion-item>
+   </ion-list>
+
     <div class="ion-padding">
         <ion-button expand="block" [disabled]="!myControl.valid" color="dark" (click)="saveTodo()">Guardar</ion-button>
     </div>        
