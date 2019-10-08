@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { TaskI } from 'src/app/auth/task';
 import { Observable } from 'rxjs';
-import { AngularFireAuth } from  '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { ItemService } from 'src/app/services/item.service';
 import { LoadingController } from '@ionic/angular';
-import { TaskI } from '../auth/task';
-import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-config',
-  templateUrl: './config.page.html',
-  styleUrls: ['./config.page.scss'],
+  selector: 'app-viewconfig',
+  templateUrl: './viewconfig.page.html',
+  styleUrls: ['./viewconfig.page.scss'],
 })
-export class ConfigPage implements OnInit {
-  public form: FormGroup;
+export class ViewconfigPage implements OnInit {
+  configId: any;
+
   items: Observable<any>;
   todoId = null;
 
@@ -54,33 +53,17 @@ export class ConfigPage implements OnInit {
               private itemservice: ItemService,
               public loadingController: LoadingController) { }
 
-  ngOnInit() {
-    this.todoId = this.route.snapshot.params['id'];
-    if (this.todoId){                                   // true When edit button is clicked
+  ngOnInit() {}
+
+  ionViewWillEnter() {
+    this.configId = this.route.snapshot.params['id'];
+    if (this.configId){                                   // true When edit button is clicked
       this.loadTodo();
     }
+    console.log(this.configId);
   }
 
-  async saveTodo() {
-    const loading = await this.loadingController.create({
-      message: 'Guardando....'
-    });
-    await loading.present();
- 
-    if (this.todoId) {
-      this.itemservice.updateTodo(this.todo, this.todoId).then(() => {
-        loading.dismiss();
-        this.router.navigate(['/home']);
-      });
-    } else {
-      this.itemservice.addTodo(this.todo).then(() => {
-        loading.dismiss();
-        this.router.navigate(['/home']);
-      });
-    }
-  }
-
-/** Go Back */
+  /** Go Back */
   gotoHome() {
     this.router.navigate(['/home']);
   }
@@ -91,10 +74,15 @@ export class ConfigPage implements OnInit {
     });
     await loading.present();
 
-    this.itemservice.getTodo(this.todoId).subscribe( todos =>{
+    this.itemservice.getTodo(this.configId).subscribe( todos =>{
       loading.dismiss();
       this.todo = todos;
     })
   }
 
 }
+
+
+
+
+

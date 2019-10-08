@@ -1,40 +1,39 @@
-<ion-header line="none">
+<!-- <ion-header line="none">
   <ion-toolbar>
     <ion-title color="light"></ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
-
+<ion-content slot="fixed">
   <div class="login-logo">
     <img src="/assets/img/solecom.png" alt="logo">
   </div>
-
-  <section class="login-form" >  
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <ion-list lines="full">
-      <ion-item>
-        <ion-label position="stacked" color="dark">Correo Eléctronico</ion-label>
-        <ion-input name="email" type="email" required ngModel email>
-        </ion-input>
-      </ion-item>
-      <ion-text color="danger">
-        <p [hidden]="true" class="ion-padding-start">
-          Username is required
-        </p>
-      </ion-text>
-
-      <ion-item>
-        <ion-label position="stacked" color="dark">Contraseña</ion-label>
-        <ion-input name="password" type="password" required="true" ngModel minlength="8">
-        </ion-input>
-      </ion-item>
-    </ion-list>
-
-    <div class="ion-padding">
-      <ion-button type="submit" expand="block">Accesar</ion-button>
-    </div>
-  </form>
-  </section>
-
+  <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+          <section class="login-form" > 
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                  <ion-list lines="full">
+                    <ion-item>
+                      <ion-label position="floating">Correo Eléctronico</ion-label>
+                      <ion-input name="email" type="email" ngModel required email #emailCtrl="ngModel" ></ion-input>
+                      <!-- <p *ngIf="!emailCtrl.valid && emailCtrl.touched" lines="none"> Email Inválido </p> -->
+                    </ion-item>
+                    <ion-item *ngIf="!emailCtrl.valid && emailCtrl.touched" lines="none">
+                        <ion-label style="font-size:14px; color:rgb(250, 2, 56)"> Correo Inválido. Intente otra vez </ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label position="floating">Contraseña</ion-label>
+                      <ion-input name="password" type="password" required ngModel minlength="8" #passCtrl="ngModel"></ion-input>
+                    </ion-item>
+                    <ion-item *ngIf="!passCtrl.valid && passCtrl.touched" lines="none">
+                        <ion-label style="font-size:14px; color:rgb(248, 7, 59)"> Contraseña Inválida. Intente otra vez </ion-label>
+                    </ion-item>
+                  </ion-list>
+                  <div class="ion-padding">
+                    <ion-button type="submit" expand="block" [disabled]="!f.valid">Accesar</ion-button>
+                  </div>
+                </form> 
+              </section>
+      </ion-col>
+    </ion-row>   
 </ion-content>

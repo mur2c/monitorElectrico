@@ -20,8 +20,8 @@ export class AppComponent {
     },
     {
       title: 'Salir',
-      url: '/logout',
-      icon: 'list'
+      url: '/login',
+      icon: 'Exit',
     },
   ];
 

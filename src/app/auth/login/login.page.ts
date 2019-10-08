@@ -11,7 +11,7 @@ import { async } from 'rxjs/internal/scheduler/async';
 })
 export class LoginPage implements OnInit {
 
-  loginForm: FormGroup;
+  public loginForm: FormGroup;
 
   constructor(private authService: AuthService, public loadingController: LoadingController) { }
 
@@ -25,20 +25,19 @@ export class LoginPage implements OnInit {
    }
 
    async onSubmit(form: NgForm) {
-    
+
      const loading = await this.loadingController.create({
+      keyboardClose: true,
       message: 'Por Favor Espere ...',
       duration: 1000
-    });
-    await loading.present();
+       });
+     await loading.present();
 
-
-    this.authService.login({
+     this.authService.login({
       email: form.value.email,
       password: form.value.password
     });
-
-    const { role, data } = await loading.onDidDismiss();
-  }
-
+     this.loginForm.reset();
+     const { role, data } = await loading.onDidDismiss();
+   }
   }

@@ -6,6 +6,7 @@ import { AngularFireModule} from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 import { IonicModule, IonicRouteStrategy, AlertController} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -29,6 +30,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    AngularFireMessagingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
@@ -37,7 +39,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AuthService,
     AuthGuard,
-    //ItemService,
     AlertController
   ],
   bootstrap: [AppComponent]

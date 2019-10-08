@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot ="start">
+      <ion-back-button text="Volver" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark" slot="start"></ion-title>
+  </ion-toolbar>
+  <div id="heads">Ver Configuración</div> 
+</ion-header>
+<ion-content>
+<section class="add_device" > 
+    <div class="titulo">Datos Generales</div>
+    <ion-list>
+       <ion-item>
+          <ion-label position="fixed" color="dark">Nombre</ion-label>
+          <!-- <ion-input class="form-control" type="text" maxlength="40" [(ngModel)]="todo.emp" #myControl="ngModel" placeholder="{{usuario}}" value="Readonly">hola</ion-input> -->
+          <ion-input class="form-control" type="text" placeholder="{{todo.emp}}" readonly slot="end"></ion-input>
+       </ion-item>
+       <ion-item>
+          <ion-label position="fixed" color="dark">Sucursal</ion-label><ion-input type="text" placeholder= "{{todo.suc}}" readonly slot="end"> </ion-input>
+       </ion-item>
+       <ion-item>
+          <ion-label position="fixed" color="dark">Dispositivo</ion-label><ion-input placeholder="{{todo.disp}}" readonly slot="end"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed" color="dark">Id</ion-label><ion-input placeholder="{{todo.sensor}}" readonly slot="end"></ion-input>
+      </ion-item>
+    </ion-list> 
+
+    <div class="titulo">Datos del Dispositivo</div>
+    <ion-list>
+      <ion-item>
+            <ion-label position="fixed" color="dark">Capacidad</ion-label><ion-input placeholder="{{todo.cap}}" readonly slot="end"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="fixed" color="dark">Modelo</ion-label><ion-input placeholder="{{todo.model}}" readonly slot="end"></ion-input>
+      </ion-item>
+      <ion-item>
+         <ion-label position="fixed" color="dark">Volt Ent</ion-label>
+         <ion-input class="form-control" type="text" placeholder="{{todo.vent}}" readonly slot="end"></ion-input>
+      </ion-item>
+      <ion-item>
+         <ion-label position="fixed" color="dark">Volt Sal</ion-label><ion-input type="text" placeholder= "{{todo.vsal}}" readonly slot="end"> </ion-input>
+      </ion-item>
+   </ion-list>
+
+   <div class="titulo">Datos de las Baterias</div>
+   <ion-list>
+     <ion-item>
+           <ion-label position="fixed" color="dark">Marca</ion-label><ion-input placeholder="{{todo.batmarca}}" readonly slot="end"></ion-input>
+     </ion-item>
+     <ion-item>
+         <ion-label position="fixed" color="dark">Capacidad</ion-label><ion-input placeholder="{{todo.batcap}}" readonly slot="end"></ion-input>
+     </ion-item>
+     <ion-item>
+        <ion-label position="fixed" color="dark">Cantidad</ion-label>
+        <ion-input class="form-control" type="text" placeholder="{{todo.batcant}}" readonly slot="end"></ion-input>
+     </ion-item>
+     <ion-item>
+        <ion-label position="fixed" color="dark">Configuración</ion-label><ion-input type="text" placeholder="{{todo.batconf}} readonly" slot="end"> </ion-input>
+     </ion-item>
+  </ion-list>      
+</section>
+</ion-content>

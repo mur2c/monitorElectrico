@@ -1,57 +1,64 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons start ion-button icon-only (click)="gotoHome()">
-        <ion-icon color="light" name="md-arrow-back" color="dark"></ion-icon>
+    <ion-buttons slot ="start">
+      <ion-back-button text="Volver" defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title color="dark" slot="start">   
-    </ion-title>
+    <ion-title color="dark" slot="start"></ion-title>
   </ion-toolbar>
-  <div id="heads">Configuración</div> 
+  <div id="heads">Editar Configuración</div> 
 </ion-header>
-
-
 <ion-content>
 <section class="add_device" > 
-    <div class="titulo">Datos de la Empresa</div>
+    <div class="titulo">Datos Generales</div>
     <ion-list>
        <ion-item>
           <ion-label position="fixed" color="dark">Nombre</ion-label>
-          <ion-input class="form-control" type="text" maxlength="40" [(ngModel)]="todo.emp" #myControl="ngModel" placeholder="{{usuario}}"></ion-input>
+          <ion-input class="form-control" type="text" maxlength="40" [(ngModel)]="todo.emp" #myControl="ngModel" placeholder="{{usuario}}" slot="end"></ion-input>
        </ion-item>
        <ion-item>
-          <ion-label position="fixed" color="dark">Sucursal</ion-label><ion-input type="text" maxlength="40" [(ngModel)]="todo.suc" placeholder= "{{localidad}}"> </ion-input>
+          <ion-label position="fixed" color="dark">Sucursal</ion-label><ion-input type="text" maxlength="40" [(ngModel)]="todo.suc" placeholder= "{{localidad}}" slot="end"> </ion-input>
        </ion-item>
        <ion-item>
-          <ion-label position="fixed" color="dark">Dispositivo</ion-label><ion-input placeholder="Nombre del Dispositivo"></ion-input>
+          <ion-label position="fixed" color="dark">Dispositivo</ion-label><ion-input [(ngModel)]="todo.disp" #myControl="ngModel" placeholder="{{dispositivo}}" slot="end"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="fixed" color="dark">Id</ion-label><ion-input placeholder="Id del Dispositivo o sensor"></ion-input>
+        <ion-label position="fixed" color="dark">Id</ion-label><ion-input [(ngModel)]="todo.sensor" #myControl="ngModel" placeholder="{{sensorid}}" slot="end"></ion-input>
       </ion-item>
     </ion-list> 
 
-    <div class="titulo">Datos Generales</div>
-
+    <div class="titulo">Datos del Dispositivo</div>
     <ion-list>
       <ion-item>
-            <ion-label position="fixed" color="dark">Capacidad</ion-label><ion-input placeholder="Capacidad Inversor"></ion-input>
+            <ion-label position="fixed" color="dark">Capacidad</ion-label><ion-input [(ngModel)]="todo.cap" #myControl="ngModel" placeholder="{{eqCap}}" slot="end"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label position="fixed" color="dark">Marca</ion-label><ion-input placeholder="Marca del Inversor"></ion-input>
+          <ion-label position="fixed" color="dark">Modelo</ion-label><ion-input [(ngModel)]="todo.model" #myControl="ngModel" placeholder="{{eqModel}}" slot="end"></ion-input>
       </ion-item>
       <ion-item>
-         <ion-label position="fixed" color="dark">Tipo</ion-label>
-         <ion-input class="form-control" type="text" maxlength="40" placeholder="Tipo de Baterias"></ion-input>
+         <ion-label position="fixed" color="dark">Volt Ent</ion-label>
+         <ion-input class="form-control" type="text" maxlength="40" [(ngModel)]="todo.vent" #myControl="ngModel" placeholder="{{vEnt}}" slot="end"></ion-input>
       </ion-item>
       <ion-item>
-         <ion-label position="fixed" color="dark">Marca</ion-label><ion-input type="text" maxlength="40" placeholder= "Marcas Baterias"> </ion-input>
+         <ion-label position="fixed" color="dark">Volt Sal</ion-label><ion-input type="text" maxlength="40" [(ngModel)]="todo.vsal" #myControl="ngModel" placeholder= "{{vSal}}" slot="end"> </ion-input>
       </ion-item>
-      <ion-item>
-         <ion-label position="fixed" color="dark">Capacidad</ion-label><ion-input placeholder="Capacidad Baterias"></ion-input>
+   </ion-list>
+
+   <div class="titulo">Datos de las Baterias</div>
+   <ion-list>
+     <ion-item>
+           <ion-label position="fixed" color="dark">Marca</ion-label><ion-input [(ngModel)]="todo.batmarca" #myControl="ngModel" placeholder="{{batMarca}}" slot="end"></ion-input>
      </ion-item>
      <ion-item>
-       <ion-label position="fixed" color="dark">Cantidad</ion-label><ion-input placeholder="Cantidad de Baterias"></ion-input>
+         <ion-label position="fixed" color="dark">Capacidad</ion-label><ion-input [(ngModel)]="todo.batcap" #myControl="ngModel" placeholder="{{batCap}}" slot="end"></ion-input>
      </ion-item>
-   </ion-list>
+     <ion-item>
+        <ion-label position="fixed" color="dark">Cantidad</ion-label>
+        <ion-input class="form-control" type="text" maxlength="40" [(ngModel)]="todo.batcant" #myControl="ngModel" placeholder="{{batCant}}" slot="end"></ion-input>
+     </ion-item>
+     <ion-item>
+        <ion-label position="fixed" color="dark">Configuración</ion-label><ion-input type="text" maxlength="40" [(ngModel)]="todo.batconf" #myControl="ngModel" placeholder="{{batConf}}" slot="end"> </ion-input>
+     </ion-item>
+  </ion-list>
 
     <div class="ion-padding">
         <ion-button expand="block" [disabled]="!myControl.valid" color="dark" (click)="saveTodo()">Guardar</ion-button>

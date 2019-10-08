@@ -18,7 +18,7 @@ ion-title {
 
   ion-label {
  //   font-weight: 550;
-    color: #61676b !important;
+    color: #61676b;
 }
 
 ion-button {
@@ -27,4 +27,8 @@ ion-button {
 
 ion-toolbar {
     --border-color:white;
+}
+
+ion-content {
+ --padding-top: 20%
 }

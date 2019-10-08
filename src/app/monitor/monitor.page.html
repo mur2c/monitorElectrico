@@ -1,7 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons start ion-button icon-only (click)="gotoHome()">
+    <!-- <ion-buttons start ion-button icon-only (click)="gotoHome()">
         <ion-icon color="light" name="md-arrow-back" color="dark"></ion-icon>
+    </ion-buttons> -->
+    <ion-buttons slot ="start">
+        <ion-back-button text="Volver" defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title color="dark" slot="start">   
     </ion-title>
