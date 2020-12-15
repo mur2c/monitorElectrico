@@ -32,7 +32,7 @@
     "cordova-android": "^8.0.0",
     "cordova-ios": "^5.0.1",
     "core-js": "^2.5.4",
-    "ecstatic": "^3.3.1",
+    "ecstatic": "^4.1.4",
     "firebase": "^6.6.1",
     "http-server": "^0.11.1",
     "rxjs": "~6.5.1",
